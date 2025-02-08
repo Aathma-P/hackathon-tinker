@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Hive - Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .background-image {
+            background-image: url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="background-image flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 bg-opacity-90">
+        <h1 class="text-2xl font-bold text-center mb-4">HARVEST HIVE</h1>
+        <p class="text-center text-gray-600 mb-6">FAIRTRADE MADE EASY</p>
+        
+        <form id="signupForm">  <!-- Removed onsubmit="return validateForm()" -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Full Name:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Full Name" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword">Confirm Password:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="confirmPassword" type="password" placeholder="Confirm Password" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="userType">I am a:</label>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userType" required>
+                    <option value="farmer">Farmer</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="industry">Industry</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-between">
+                <button id="signupButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Sign Up
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-800" href="login.html">
+                    Already have an account? Login
+                </a>
+            </div>
+        </form>
+        <p id="errorMessage" class="text-red-500 text-center mt-2"></p> <!-- Error message container -->
+        
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
