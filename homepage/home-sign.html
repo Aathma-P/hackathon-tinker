@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Hive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom background image for the entire page */
+        .background-image {
+            background-image: url('/images/bg_image.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        /* Custom background image for Farmer Services */
+        .farmer-services-bg {
+            background-image: url('/images/background.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8); /* Light overlay for better readability */
+        }
+        .custom-hover:hover {
+            background-color: #74AB4E !important; /* Green shade */
+            color: white !important;
+            border-color: #74AB4E !important;
+        }
+        .cursor {
+            display: inline-block;
+            width: 6px;
+            height: 24px;
+            background-color: #7bb640; /* Green Cursor */
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Initially hide the signup form */
+        #signupFormContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="text-white bg-gray-100 text-gray-800">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-green-600">HARVEST HIVE</h1>
+        <button id="menu-btn" class="md:hidden text-green-600 text-xl">☰</button>
+        <ul class="hidden md:flex space-x-6 text-gray-700" id="menu">
+          <li>
+            <a href="#" id="signupBtn" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                Sign-up
+            </a>
+          </li>
+          <li><a href="#" class="hover:text-green-600">Home</a></li>
+          <li><a href="#" class="hover:text-green-600">About</a></li>
+          <li><a href="#" class="hover:text-green-600">Marketplace</a></li>
+          <li><a href="#" class="hover:text-green-600">Contact</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <!-- Signup Form Container -->
+  <div id="signupFormContainer" class="background-image flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 bg-opacity-90">
+        <h1 class="text-2xl font-bold text-center mb-4">HARVEST HIVE</h1>
+        <p class="text-center text-gray-600 mb-6">FAIRTRADE MADE EASY</p>
+        
+        <form id="signupForm" onsubmit="return validateForm()">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Full Name:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Full Name" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword">Confirm Password:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="confirmPassword" type="password" placeholder="Confirm Password" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="userType">I am a:</label>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userType" required>
+                    <option value="farmer">Farmer</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="industry">Industry</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Sign Up
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-800" href="login.html">
+                    Already have an account? Login
+                </a>
+            </div>
+        </form>
+    </div>
+  </div>
+
+  <!-- Rest of your existing HTML content -->
+  <!-- ... -->
+
+  <!-- JavaScript -->
+  <script>
+      // Navbar toggle
+      document.getElementById("menu-btn").addEventListener("click", function() {
+          document.getElementById("menu").classList.toggle("hidden");
+      });
+
+      // Toggle signup form visibility
+      document.getElementById("signupBtn").addEventListener("click", function(event) {
+          event.preventDefault();
+          document.getElementById("signupFormContainer").style.display = 'flex';
+      });
+
+      // Close signup form when clicking outside of it
+      document.getElementById("signupFormContainer").addEventListener("click", function(event) {
+          if (event.target === this) {
+              this.style.display = 'none';
+          }
+      });
+
+      // Form validation
+      function validateForm() {
+          const password = document.getElementById('password').value;
+          const confirmPassword = document.getElementById('confirmPassword').value;
+
+          if (password !== confirmPassword) {
+              alert('Passwords do not match.');
+              return false;
+          }
+          return true;
+      }
+
+      // Typewriter effect
+      const textArray = [
+          "Connect with Trusted Farmers around India!",
+          "Sell Your Crops Directly, No Middlemen!",
+          "Buy ,rent and sell essential tools",
+          "Sell the farm waste to the industry",
+          "Fair Trade & Transparent Transactions!"
+      ];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+          const currentText = textArray[textIndex];
+          const displayText = isDeleting ? currentText.substring(0, charIndex--) : currentText.substring(0, charIndex++);
+          document.getElementById("typewriter").textContent = displayText;
+
+          let typingSpeed = isDeleting ? 50 : 100;
+
+          if (!isDeleting && displayText === currentText) {
+              typingSpeed = 2000; // Pause before deleting
+              isDeleting = true;
+          } else if (isDeleting && displayText === "") {
+              isDeleting = false;
+              textIndex = (textIndex + 1) % textArray.length;
+              typingSpeed = 500;
+          }
+
+          setTimeout(typeEffect, typingSpeed);
+      }
+
+      // Start animation on page load
+      document.addEventListener("DOMContentLoaded", () => {
+          setTimeout(typeEffect, 1000);
+      });
+  </script>
+</body>
+</html>
