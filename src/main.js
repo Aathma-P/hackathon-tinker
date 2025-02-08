@@ -1,39 +1,42 @@
-// Sample data (replace this with data from your backend)
 const categories = [
-    { id: 1, name: "Fresh Vegetables", type: "product" },
-    { id: 2, name: "Fruits", type: "product" },
-    { id: 3, name: "Dairy Products", type: "product" },
-    { id: 4, name: "Tractors", type: "tool" },
-    { id: 5, name: "Plows", type: "tool" },
-    { id: 6, name: "Organic Waste", type: "waste" },
-    { id: 7, name: "Crop Residue", type: "waste" },
-  ];
-  
-  // Function to render categories
-  function renderCategories(filteredCategories) {
+    { name: "Fresh Vegetables", type: "Product", image: "img/vegetables.jpg" },
+    { name: "Fruits", type: "Product", image: "img/fruits.jpg" },
+    { name: "Tractors", type: "Tool", image: "img/tractors.jpg" },
+    { name: "Organic Waste", type: "Waste", image: "img/waste.jpg" },
+    { name: "Dairy Products", type: "Product", image: "img/dairy.jpg" },
+    { name: "Irrigation Tools", type: "Tool", image: "img/irrigation.jpg" }
+];
+
+// Function to render categories
+function renderCategories(filter = "") {
     const grid = document.getElementById("categoryGrid");
-    grid.innerHTML = ""; // Clear existing content
-  
-    filteredCategories.forEach((category) => {
-      const card = document.createElement("div");
-      card.className = "bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow";
-      card.innerHTML = `
-        <h3 class="text-xl font-semibold">${category.name}</h3>
-        <p class="text-gray-600">${category.type}</p>
-      `;
-      grid.appendChild(card);
-    });
-  }
-  
-  // Initial render
-  renderCategories(categories);
-  
-  // Search functionality
-  const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    const filteredCategories = categories.filter((category) =>
-      category.name.toLowerCase().includes(searchTerm)
+    grid.innerHTML = ""; // Clear previous content
+
+    const filteredCategories = categories.filter(cat =>
+        cat.name.toLowerCase().includes(filter.toLowerCase())
     );
-    renderCategories(filteredCategories);
-  });
+
+    if (filteredCategories.length === 0) {
+        grid.innerHTML = `<p class="text-gray-600 text-center col-span-3">No categories found.</p>`;
+        return;
+    }
+
+    filteredCategories.forEach(cat => {
+        const categoryCard = document.createElement("div");
+        categoryCard.className = "bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition";
+        categoryCard.innerHTML = `
+            <img src="${cat.image}" alt="${cat.name}" class="w-full h-40 object-cover rounded">
+            <h3 class="text-xl font-semibold mt-2">${cat.name}</h3>
+            <p class="text-gray-500">${cat.type}</p>
+        `;
+        grid.appendChild(categoryCard);
+    });
+}
+
+// Search Functionality
+document.getElementById("searchInput").addEventListener("input", (e) => {
+    renderCategories(e.target.value);
+});
+
+// Load categories on page load
+document.addEventListener("DOMContentLoaded", () => renderCategories());
