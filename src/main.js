@@ -49,7 +49,6 @@ if (searchInput) {
 // Load categories on page load
 document.addEventListener("DOMContentLoaded", () => renderCategories());
 
-
 // ✅ SIGNUP FUNCTIONALITY (Fixed)
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
@@ -112,6 +111,55 @@ if (loginForm) {
         } else {
             alert("Login successful!");
             window.location.href = "dashboard.html"; // Redirect after login
+        }
+    });
+}
+
+// ✅ SELLER FORM FUNCTIONALITY
+const sellerForm = document.getElementById("sellerForm");
+if (sellerForm) {
+    sellerForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const productName = document.getElementById("productName").value;
+        const productDescription = document.getElementById("productDescription").value;
+        const productPrice = document.getElementById("productPrice").value;
+        const productImage = document.getElementById("productImage").files[0];
+
+        // Upload image to Supabase Storage
+        const { data: imageData, error: imageError } = await supabase.storage
+            .from('product-images')
+            .upload(`products/${productImage.name}`, productImage);
+
+        if (imageError) {
+            console.error('Error uploading image:', imageError);
+            alert('Failed to upload product image. Please try again.');
+            return;
+        }
+
+        // Get the URL of the uploaded image
+        const { data: imageUrl } = supabase.storage
+            .from('product-images')
+            .getPublicUrl(`products/${productImage.name}`);
+
+        // Insert product data into the products table
+        const { data: productData, error: productError } = await supabase
+            .from('products')
+            .insert([
+                {
+                    name: productName,
+                    description: productDescription,
+                    price: productPrice,
+                    image_url: imageUrl.publicUrl
+                }
+            ]);
+
+        if (productError) {
+            console.error('Error inserting product:', productError);
+            alert('Failed to list product. Please try again.');
+        } else {
+            alert('Product listed successfully!');
+            sellerForm.reset();
         }
     });
 }
