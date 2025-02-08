@@ -1,0 +1,23 @@
+{
+  "name": "hospital-management",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aathma-P/hackathon-tinker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aathma-P/hackathon-tinker/issues"
+  },
+  "homepage": "https://github.com/Aathma-P/hackathon-tinker#readme",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.48.1"
+  }
+}

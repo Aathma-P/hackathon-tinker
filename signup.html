@@ -18,7 +18,7 @@
         <h1 class="text-2xl font-bold text-center mb-4">HARVEST HIVE</h1>
         <p class="text-center text-gray-600 mb-6">FAIRTRADE MADE EASY</p>
         
-        <form id="signupForm" onsubmit="return validateForm()">
+        <form id="signupForm">  <!-- Removed onsubmit="return validateForm()" -->
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Full Name:</label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Full Name" required>
@@ -44,7 +44,7 @@
                 </select>
             </div>
             <div class="flex items-center justify-between">
-                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <button id="signupButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                     Sign Up
                 </button>
                 <a class="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-800" href="login.html">
@@ -52,19 +52,12 @@
                 </a>
             </div>
         </form>
+        <p id="errorMessage" class="text-red-500 text-center mt-2"></p> <!-- Error message container -->
+        
     </div>
+    <script type="module" src="./src/supabase.js"></script>
+    <script type="module" src="./src/main.js"></script>
 
-    <script>
-        function validateForm() {
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            if (password !== confirmPassword) {
-                alert('Passwords do not match.');
-                return false;
-            }
-            return true;
-        }
-    </script>
+    <script type="module" src="src/main.js"></script>
 </body>
 </html>

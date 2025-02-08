@@ -1,3 +1,7 @@
+// Import Supabase
+import { supabase } from "./supabase.js";
+
+// ✅ CATEGORY FILTER FUNCTIONALITY
 const categories = [
     { name: "Fresh Vegetables", type: "Product", image: "img/vegetables.jpg" },
     { name: "Fruits", type: "Product", image: "img/fruits.jpg" },
@@ -7,10 +11,11 @@ const categories = [
     { name: "Irrigation Tools", type: "Tool", image: "img/irrigation.jpg" }
 ];
 
-// Function to render categories
+// Render categories based on search filter
 function renderCategories(filter = "") {
     const grid = document.getElementById("categoryGrid");
-    grid.innerHTML = ""; // Clear previous content
+    if (!grid) return; // Prevent error if element is not on this page
+    grid.innerHTML = "";
 
     const filteredCategories = categories.filter(cat =>
         cat.name.toLowerCase().includes(filter.toLowerCase())
@@ -33,10 +38,80 @@ function renderCategories(filter = "") {
     });
 }
 
-// Search Functionality
-document.getElementById("searchInput").addEventListener("input", (e) => {
-    renderCategories(e.target.value);
-});
+// Search functionality
+const searchInput = document.getElementById("searchInput");
+if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+        renderCategories(e.target.value);
+    });
+}
 
 // Load categories on page load
 document.addEventListener("DOMContentLoaded", () => renderCategories());
+
+
+// ✅ SIGNUP FUNCTIONALITY (Fixed)
+const signupForm = document.getElementById("signupForm");
+if (signupForm) {
+    signupForm.addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent form refresh
+
+        const fullName = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const userType = document.getElementById("userType").value;
+        const errorMessage = document.getElementById("errorMessage");
+
+        // ✅ Check if passwords match
+        if (password !== confirmPassword) {
+            errorMessage.textContent = "Passwords do not match.";
+            return;
+        }
+
+        // ✅ Sign up user with Supabase Authentication
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password
+        });
+
+        if (error) {
+            errorMessage.textContent = "Signup failed: " + error.message;
+        } else {
+            // ✅ Ensure user object exists before inserting
+            if (data.user) {
+                await supabase.from("users").insert([
+                    {
+                        id: data.user.id, // Use the Supabase auth user ID
+                        full_name: fullName,
+                        email: email,
+                        user_type: userType
+                    }
+                ]);
+            }
+
+            alert("Signup successful! Please check your email for verification.");
+            window.location.href = "homepage.html"; // Redirect to login page
+        }
+    });
+}
+
+// ✅ LOGIN FUNCTIONALITY (No changes needed)
+const loginForm = document.getElementById("login-form");
+if (loginForm) {
+    loginForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+        if (error) {
+            alert("Login failed: " + error.message);
+        } else {
+            alert("Login successful!");
+            window.location.href = "dashboard.html"; // Redirect after login
+        }
+    });
+}

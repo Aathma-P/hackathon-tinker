@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Hive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom background image for the entire page */
+        .background-image {
+            background-image: url('/images/bg_image.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        /* Custom background image for Farmer Services */
+        .farmer-services-bg {
+            background-image: url('/images/background.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8); /* Light overlay for better readability */
+        }
+        .custom-hover:hover {
+            background-color: #74AB4E !important; /* Green shade */
+            color: white !important;
+            border-color: #74AB4E !important;
+        }
+        .cursor {
+            display: inline-block;
+            width: 6px;
+            height: 24px;
+            background-color: #7bb640; /* Green Cursor */
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="text-white bg-gray-100 text-gray-800">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-green-600">HARVEST HIVE</h1>
+        <button id="menu-btn" class="md:hidden text-green-600 text-xl">☰</button>
+        <ul class="hidden md:flex space-x-6 text-gray-700" id="menu">
+          <li>
+            <a href="#" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                Sign-up
+            </a>
+          </li>
+          <li><a href="#" class="hover:text-green-600">Home</a></li>
+          <li><a href="#" class="hover:text-green-600">About</a></li>
+          <li><a href="#" class="hover:text-green-600">Marketplace</a></li>
+          <li><a href="#" class="hover:text-green-600">Contact</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <!-- Background Image Section -->
+  <div class="background-image flex flex-col justify-center items-center p-6">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">
+          A B2B DIGITAL MARKETPLACE WHERE FAIR FOOD<br>
+          TRADE IS MADE EASY, FAST AND TRANSPARENT!
+      </h1>
+
+      <!-- Typewriter Effect Section -->
+    <div class="text-4xl font-bold mb-8 text-center text-#85B562 flex flex-col justify-center items-center ">
+      <span id="typewriter"></span>
+      <span class="cursor"></span>
+  </div>
+
+      <div class="mt-8 text-center">
+          <p class="text-xl mb-4">Can't find the product you are looking for?</p>
+          <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+              Find the product for me
+          </button>
+      </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="container mx-auto p-6 text-center">
+      <h2 class="text-4xl font-bold text-gray-800">Our Solution</h2>
+      <p class="mt-4 text-gray-600">
+          Harvest Hive is a digital B2B market solution that brings together Farmers and Industrial Buyers.
+      </p>
+      <div class="mt-5 flex justify-center">
+          <img src="/images/venn_diagram.webp" alt="Agri Marketplace Solution" class="w-full max-w-2xl rounded-lg shadow-lg">
+      </div>
+      <div class="mt-6">
+          <button class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Explore Marketplace</button>
+          <button class="ml-4 border border-green-600 text-green-600 px-6 py-2 rounded-lg hover:bg-green-600 hover:text-white">Learn More</button>
+      </div>
+  </div>
+
+  <!-- Farmer Services Section with Background Image -->
+  <div class="container mx-auto px-4 py-8 pb-20">
+    <section class="farmer-services-bg p-8 rounded-lg shadow-md text-gray-900">
+        <h1 class="text-3xl font-bold mb-6">OUR VALUE PROPOSITION</h1>
+        <p class="text-lg mb-6">
+          Harvest Hive accommodates direct transactions between buyers and sellers. 
+        </p>
+
+        <!-- Farmer Services -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">FARMER SERVICES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Available Services</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Direct Produce Selling</li>
+                        <li>Buying Agricultural Products</li>
+                        <li>Renting & Leasing Tools</li>
+                        <li>Seed Exchange Programs</li>
+                        <li>Storage & Logistics Support</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Additional Benefits</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Fast Transactions</li>
+                        <li>No Middlemen</li>
+                        <li>Verified Buyers & Sellers</li>
+                        <li>Competitive Pricing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+
+  
+<!-- Main Section -->
+<div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-10">
+    
+    <!-- Left Side - Text -->
+    <div class="md:w-1/2">
+        <h2 class="text-4xl font-bold text-gray-900">
+            <span class="text-green-600">HOW</span> IT WORKS
+        </h2>
+        <p class="text-lg font-semibold text-gray-700 mt-2">
+            TAKE A LOOK AT OUR <span class="text-green-600">PLATFORM DEMO.</span>
+        </p>
+        <ul class="mt-6 space-y-3 text-lg text-gray-700">
+            <li>1. Sign-up to the platform</li>
+            <li>2. Create your account</li>
+            <li>3. Set according to the categories & prices</li>
+            <li>4. Provide us with characteristics & details of crop or tools</li>
+            <li>5. Decide upon the type of waste to be sold</li>
+            <li>6. Decide upon logistic and/or crop quality check services</li>
+            <li>7. Post your seller offer or buyer bid</li>
+        </ul>
+    </div>
+
+    <!-- Right Side - Image -->
+    <div class="md:w-1/2 flex justify-center">
+        <img src="/images/demo.webp" alt="Platform Demo" class="w-full max-w-lg shadow-lg rounded-lg">
+    </div>
+
+</div>
+<!-- Main Section -->
+<div class="container mx-auto px-6 py-12 text-center">
+        
+  <!-- Title -->
+  <h2 class="text-4xl font-bold text-gray-900">
+      GET <span class="text-green-600">STARTED</span>
+  </h2>
+  <p class="text-lg text-gray-700 mt-4 max-w-3xl mx-auto">
+    Empowering farmers with a direct marketplace—no middlemen involved! Buy, sell, or rent agricultural tools with ease. Farmers can also sell useful waste to industries, creating a sustainable ecosystem. Our platform ensures secure transactions and connects you with trusted buyers and sellers. Get started by signing up and exploring the best deals today There are two ways to get started:
+  </p>
+
+  <!-- Content Sections -->
+  <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+      
+      <!-- Seller Section -->
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-green-600">POST OFFER AS A SELLER</h3>
+          <p class="text-gray-700 mt-2">
+              As a seller, post offers for the agricultural crop you are looking to sell, and gain immediate access 
+              to credit-verified buyers. Or simply react to an existing buyer’s bid and start your transaction.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-4">
+              <button class="border border-green-600 text-green-600 px-6 py-2 rounded-lg transition custom-hover">
+                  Register as a seller
+              </button>
+              <button class="border border-green-600 text-green-600 px-6 py-2 rounded-lg transition custom-hover">
+                  Selling offer video
+              </button>
+          </div>
+      </div>
+
+      <!-- Buyer Section -->
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-green-600">POST BID AS A BUYER</h3>
+          <p class="text-gray-700 mt-2">
+              As a buyer, post bids for the agricultural crop you are looking to buy. Communicate to the market what 
+              you are looking for, and get rapid reactions from interested farmers or sellers.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-4">
+              <button class="border border-green-600 text-green-600 px-6 py-2 rounded-lg transition custom-hover">
+                  Register as a buyer
+              </button>
+              <button class="border border-green-600 text-green-600 px-6 py-2 rounded-lg transition custom-hover">
+                  Buying bid video
+              </button>
+          </div>
+      </div>
+
+  </div>
+</div>
+<!-- Pricing Section -->
+<div class="container mx-auto px-6 py-16">
+  <div class="flex flex-col md:flex-row items-center gap-10">
+      
+      <!-- Left Side - Text -->
+      <div class="md:w-1/2 text-left">
+          <h2 class="text-4xl font-bold text-gray-900">PRICING</h2>
+          <p class="text-lg text-gray-700 mt-4">
+            1️⃣ Selling Crops – Set own prices or accept bids from buyers. Bulk sales bring higher profits. <br>
+            2️⃣ Renting/Selling Tools – Rent equipment daily/weekly or sell unused tools to other farmers. <br>
+            3️⃣ Selling Farm Waste – Earn by selling husks, manure, or leftovers to industries for biofuel or feed.
+
+✅ No Middlemen | ✅ Higher Profits | ✅ Multiple Income Streams
+          </p>
+      </div>
+
+      <!-- Right Side - Image -->
+      <div class="md:w-1/2 flex justify-center">
+          <img src="/images/wheat.avif" alt="Pricing Bag" class="w-full max-w-md shadow-lg rounded-lg">
+      </div>
+
+  </div>
+</div>
+
+
+    <!-- Key Features Section -->
+    <div class="container mx-auto px-6 py-16 text-center">
+        
+      <!-- Title -->
+      <h2 class="text-4xl font-bold text-gray-900">
+          KEY <span class="text-green-600">FEATURES</span>
+      </h2>
+      <p class="text-lg text-gray-700 mt-4">
+          Discover how Agri Marketplace can benefit you and all other food supply chain actors.
+      </p>
+
+      <!-- Feature List -->
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          
+          <!-- Transparency -->
+          <div class="flex flex-col items-center">
+              <img src="/images//search.png" alt="Transparency" class="w-24 h-24">
+              <h3 class="text-lg font-bold mt-4">TRANSPARENCY</h3>
+              <p class="text-gray-600 mt-2">
+                  Direct transactions between farmers and industry/retail.
+              </p>
+          </div>
+
+          <!-- Fairtrade -->
+          <div class="flex flex-col items-center">
+              <img src="/images/growth.png" alt="Fairtrade" class="w-24 h-24">
+              <h3 class="text-lg font-bold mt-4">FAIRTRADE</h3>
+              <p class="text-gray-600 mt-2">
+                  Redistribution of value in food supply chain.
+              </p>
+          </div>
+
+          <!-- User Friendly -->
+          <div class="flex flex-col items-center">
+              <img src="/images/friend.png" alt="User Friendly" class="w-24 h-24">
+              <h3 class="text-lg font-bold mt-4">USER FRIENDLY</h3>
+              <p class="text-gray-600 mt-2">
+                  Reduce costs to buyers without losing reliability.
+              </p>
+          </div>
+
+          <!-- Food Traceability -->
+          <div class="flex flex-col items-center">
+              <img src="/images/food.png" alt="Food Traceability" class="w-24 h-24">
+              <h3 class="text-lg font-bold mt-4">FOOD TRACEABILITY</h3>
+              <p class="text-gray-600 mt-2">
+                  Crop reliability through supply chain traceability (coming soon).
+              </p>
+          </div>
+
+      </div>
+  </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-400 text-gray-900 py-10">
+      <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          <!-- Menu -->
+          <div>
+              <h3 class="font-bold uppercase">Menu</h3>
+              <ul class="mt-2 space-y-2">
+                  <li><a href="#" class="hover:text-green-600">Home</a></li>
+                  <li><a href="#" class="hover:text-green-600">Market</a></li>
+                  <li><a href="#" class="hover:text-green-600">Crop Converter</a></li>
+              </ul>
+          </div>
+
+          <!-- About -->
+          <div>
+              <h3 class="font-bold uppercase">About</h3>
+              <ul class="mt-2 space-y-2">
+                  <li><a href="#" class="hover:text-green-600">Our Company</a></li>
+                  <li><a href="#" class="hover:text-green-600">Our People</a></li>
+                  <li><a href="#" class="hover:text-green-600">FAQ's</a></li>
+              </ul>
+          </div>
+
+          <!-- Legal -->
+          <div>
+              <h3 class="font-bold uppercase">Legal</h3>
+              <ul class="mt-2 space-y-2">
+                  <li><a href="#" class="hover:text-green-600">Terms & Conditions</a></li>
+                  <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li>
+                  <li><a href="#" class="hover:text-green-600">Cookies Policy</a></li>
+              </ul>
+          </div>
+
+          <!-- Contact Us -->
+          <div>
+              <h3 class="font-bold uppercase">Contact Us</h3>
+              <ul class="mt-2 space-y-2">
+                  <li>📞 +91 9999988888</li>
+                  <li>📧 abc.com</li>
+              </ul>
+
+              <!-- Social Media Icons -->
+              <div class="flex space-x-4 mt-4">
+                  <a href="#" class="hover:text-green-600"><img src="/images/facebook.png" alt="Facebook" class="w-6 h-6"></a>
+                  <a href="#" class="hover:text-green-600"><img src="/images/instagram.png" alt="Instagram" class="w-6 h-6"></a>
+                  <a href="#" class="hover:text-green-600"><img src="/images/linkedin.png" alt="LinkedIn" class="w-6 h-6"></a>
+                  <a href="#" class="hover:text-green-600"><img src="/images/twitter.png" alt="Twitter" class="w-6 h-6"></a>
+                  <a href="#" class="hover:text-green-600"><img src="/images/youtube.png" alt="YouTube" class="w-6 h-6"></a>
+              </div>
+          </div>
+
+      </div>
+  </footer>
+
+<!-- Cookies Notice -->
+<div class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 text-center text-sm">
+  <p>Cookies help us deliver our services. By using our services, you agree to our use of cookies. 
+      <a href="#" class="text-green-400 underline">Learn more</a>
+  </p>
+</div>
+
+  <!-- JavaScript -->
+  <script>
+      // Navbar toggle
+      document.getElementById("menu-btn").addEventListener("click", function() {
+          document.getElementById("menu").classList.toggle("hidden");
+      });
+
+      // Fix button event listener
+      document.querySelectorAll("button").forEach(button => {
+          button.addEventListener("click", () => {
+              alert("Thank you! We will help you find the product.");
+          });
+      });
+      // Navbar toggle for mobile view
+      document.getElementById("menu-btn").addEventListener("click", function() {
+      document.getElementById("menu").classList.toggle("hidden");
+      });
+      document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+        // Navbar toggle for mobile view
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+        // Navbar toggle for mobile view
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+        const textArray = [
+            "Connect with Trusted Farmers around India!",
+            "Sell Your Crops Directly, No Middlemen!",
+            "Buy ,rent and sell essential tools",
+            "Sell the farm waste to the industry",
+            "Fair Trade & Transparent Transactions!"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentText = textArray[textIndex];
+            const displayText = isDeleting ? currentText.substring(0, charIndex--) : currentText.substring(0, charIndex++);
+            document.getElementById("typewriter").textContent = displayText;
+
+            let typingSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && displayText === currentText) {
+                typingSpeed = 2000; // Pause before deleting
+                isDeleting = true;
+            } else if (isDeleting && displayText === "") {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                typingSpeed = 500;
+            }
+
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        // Start animation on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(typeEffect, 1000);
+        });
+  </script>
+  <script type="module" src="src/main.js"></script>
+  <script type="module" src="src/supabase.js"></script>
+  
+</body>
+</html>
