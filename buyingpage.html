@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-green-600 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">FarmDirect</a>
+            <div>
+                <a href="#" class="mx-2">Home</a>
+                <a href="#" class="mx-2">Categories</a>
+                <a href="#" class="mx-2">About Us</a>
+                <a href="#" class="mx-2">News</a>
+                <a href="#" class="mx-2">Login/Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Buying Page Content -->
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Buy Products</h1>
+        
+        <!-- Search Bar -->
+        <div class="mb-6">
+            <input type="text" placeholder="Search for products..." class="w-full p-2 border border-gray-300 rounded">
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Product Card -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://res.cloudinary.com/gro-intelligence/image/upload/v1501086000/analysis/xv40clblnucnudhj0g0g.jpg" alt="Product" class="w-full h-48 object-cover rounded">
+                <h2 class="text-xl font-semibold mt-2">Organic Wheat</h2>
+                <p class="text-gray-600">High-quality organic wheat directly from the farm.</p>
+                <p class="text-green-600 font-bold">₹50/kg</p>
+                <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button>
+            </div>
+
+            <!-- Repeat Product Cards as needed -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://images.everydayhealth.com/images/diet-nutrition/apples-101-about-1440x810.jpg" alt="Product" class="w-full h-48 object-cover rounded">
+                <h2 class="text-xl font-semibold mt-2">Fresh apples</h2>
+                <p class="text-gray-600">Freshly harvested vegetables.</p>
+                <p class="text-green-600 font-bold">₹30/kg</p>
+                <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button>
+            </div>
+
+            <!-- Add more products here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white p-4 mt-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 FarmDirect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for interactive features can be added here
+    </script>
+</body>
+</html>
