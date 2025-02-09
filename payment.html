@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Harvest Hive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+        <h1 class="text-green-600 text-2xl font-bold">HARVEST HIVE</h1>
+        <div>
+            <a href="marketplace.html" class="mr-4 text-gray-600 hover:text-green-600">Marketplace</a>
+            <a href="about-us.html" class="mr-4 text-gray-600 hover:text-green-600">About Us</a>
+            <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Payment Page Content -->
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Quick & Easy Checkout</h1>
+
+        <!-- Product Details -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4">Pure Tree Certified Organic | Wheat</h2>
+            <p class="text-gray-600">1.9 kg</p>
+            <p class="text-gray-600"><span class="line-through">¥569</span> <span class="text-green-600">¥390</span> <span class="text-red-600">31% off</span></p>
+            <p class="text-gray-600 mt-2">Qty: 1</p>
+            <p class="text-gray-600">Delivery by Fri Feb 14 • Free</p>
+        </div>
+
+        <!-- Delivery Address -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4">Delivery Address</h2>
+            <p class="text-gray-600">Anjana, 682022</p>
+            <p class="text-gray-600">Alakananda ladies hostel cusat kalamassery, South Kalamassery, Kala...</p>
+        </div>
+
+        <!-- Payment Options -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4">Pay Using</h2>
+            <div class="space-y-4">
+                <label class="flex items-center">
+                    <input type="radio" name="payment" class="form-radio text-green-600" checked>
+                    <span class="ml-2">Axis Bank Debit Card</span>
+                    <span class="ml-2 text-gray-600">xxxx xxxx xxxx 9458</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="payment" class="form-radio text-green-600">
+                    <span class="ml-2">HDFC Bank Credit Card</span>
+                    <span class="ml-2 text-gray-600">xxxx xxxx xxxx 4256</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="payment" class="form-radio text-green-600">
+                    <span class="ml-2">HDFC Bank Debit Card</span>
+                    <span class="ml-2 text-gray-600">xxxx xxxx xxxx 1248</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="payment" class="form-radio text-green-600">
+                    <span class="ml-2">Cash on Delivery</span>
+                    <span class="ml-2 text-gray-600">Due to handling costs, a nominal fee of ¥7 will be charged</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Price Details -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4">Price Details</h2>
+            <p class="text-gray-600">Total: ¥393</p>
+        </div>
+
+        <!-- Place Order Button -->
+        <button id="placeOrderBtn" class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-600">Place Order</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white p-4 mt-6 text-center">
+        <p>&copy; 2024 Harvest Hive. All rights reserved.</p>
+    </footer>
+
+    <!-- Custom Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-bold mb-4">Order Placed Successfully!</h2>
+            <p class="text-gray-600 mb-6">Your order has been successfully placed. Thank you for shopping with us!</p>
+            <button id="closeModalBtn" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600">Close</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Place Order Button and Modal -->
+    <script>
+        const placeOrderBtn = document.getElementById('placeOrderBtn');
+        const successModal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        placeOrderBtn.addEventListener('click', function() {
+            successModal.classList.remove('hidden'); // Show the modal
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            successModal.classList.add('hidden'); // Hide the modal
+            // Optionally, redirect to another page after closing the modal
+            // window.location.href = 'order-confirmation.html';
+        });
+    </script>
+</body>
+</html>

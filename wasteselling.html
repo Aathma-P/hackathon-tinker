@@ -23,6 +23,12 @@
   <!-- Seller's Form for Waste Products -->
   <div class="container mx-auto p-6">
     <h1 class="text-3xl font-bold mb-6 text-green-800">Sell Useful Waste to Industries</h1>
+    
+    <!-- Error Message Display -->
+    <div id="errorMessage" class="hidden mb-4 p-4 bg-red-100 text-red-700 rounded-lg"></div>
+    <!-- Success Message Display -->
+    <div id="successMessage" class="hidden mb-4 p-4 bg-green-100 text-green-700 rounded-lg"></div>
+
     <form id="wasteForm" class="bg-white p-6 rounded-lg shadow-md">
       <!-- Waste Type -->
       <div class="mb-4">
@@ -60,37 +66,92 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-green-700 p-4 text-white text-center">
+  <footer class="bg-green-700 p-4 text-white text-center mt-8">
     <p>&copy; 2025 Harvest Hive. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript for Form Handling -->
-  <script>
-    document.getElementById('wasteForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+  <script type="module">
+    import { supabase } from "./supabase.js";
 
-      // Gather form data
-      const formData = new FormData(this);
+    // Get form element
+    const wasteForm = document.getElementById('wasteForm');
+    const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
 
-      // Send data to backend (you can use Fetch API or Axios)
-      fetch('/api/sell-waste', {
-        method: 'POST',
-        body: formData,
-      })
-        .then(response => response.json())
-        .then(data => {
-          alert('Waste product listed successfully!');
-          // Redirect or clear form
-          document.getElementById('wasteForm').reset();
-        })
-        .catch(error => {
+    // Function to show error message
+    function showError(message) {
+      errorMessage.textContent = message;
+      errorMessage.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+    }
+
+    // Function to show success message
+    function showSuccess(message) {
+      successMessage.textContent = message;
+      successMessage.classList.remove('hidden');
+      errorMessage.classList.add('hidden');
+    }
+
+    if (wasteForm) {
+      wasteForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        try {
+          // Get form values
+          const wasteType = document.getElementById('wasteType').value;
+          const wasteDescription = document.getElementById('wasteDescription').value;
+          const quantity = document.getElementById('quantity').value;
+          const pricePerUnit = document.getElementById('pricePerUnit').value;
+          const wasteImage = document.getElementById('wasteImage').files[0];
+
+          // First, upload the image to Supabase Storage
+          const imageName = `${Date.now()}-${wasteImage.name}`;
+          const { data: imageData, error: imageError } = await supabase.storage
+            .from('waste-images')
+            .upload(`waste/${imageName}`, wasteImage);
+
+          if (imageError) {
+            throw new Error('Failed to upload image: ' + imageError.message);
+          }
+
+          // Get the public URL of the uploaded image
+          const { data: { publicUrl } } = supabase.storage
+            .from('waste-images')
+            .getPublicUrl(`waste/${imageName}`);
+
+          // Insert the waste product data into the database
+          const { data, error } = await supabase
+            .from('waste_products')
+            .insert([
+              {
+                waste_type: wasteType,
+                description: wasteDescription,
+                quantity: quantity,
+                price_per_unit: pricePerUnit,
+                image_url: publicUrl,
+                seller_id: (await supabase.auth.getUser()).data.user?.id // Get current user's ID
+              }
+            ]);
+
+          if (error) throw error;
+
+          // Show success message
+          showSuccess('Waste product listed successfully!');
+          
+          // Reset form
+          wasteForm.reset();
+          
+          // Redirect to waste_cart.html after a brief delay
+          setTimeout(() => {
+            window.location.href = 'waste_cart.html';
+          }, 1500);
+
+        } catch (error) {
           console.error('Error:', error);
-          alert('Failed to list waste product. Please try again.');
-        });
-    });
+          showError(error.message || 'Failed to list waste product. Please try again.');
+        }
+      });
+    }
   </script>
-  <script type="module" src="src/main.js"></script>
-  <script type="module" src="src/supabase.js"></script>
-  
 </body>
 </html>

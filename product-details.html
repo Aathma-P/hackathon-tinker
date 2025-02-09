@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Farmers Market</title>
+  <link href="./src/input.css" rel="stylesheet">
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-green-600 p-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold">Farmers Market</a>
+      <div>
+        <a href="homepage.html" class="mx-2">Home</a>
+        <a href="about.html" class="mx-2">About Us</a>
+        <a href="news.html" class="mx-2">News</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Details -->
+  <div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold text-green-800">Product Details</h1>
+    <div id="productDetails" class="mt-4 space-y-4">
+      <!-- Product details will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 p-4 text-white text-center">
+    <p>&copy; 2025 Farmers Market. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Fetch the selected category data from localStorage
+    const selectedCategory = JSON.parse(localStorage.getItem('selectedCategory'));
+    const productDetails = document.getElementById('productDetails');
+
+    if (selectedCategory && selectedCategory.length > 0) {
+      selectedCategory.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow';
+        productCard.innerHTML = `
+          <h3 class="text-xl font-semibold">${product.name}</h3>
+          <p class="text-gray-600">${product.description}</p>
+          <p class="text-green-700 font-bold">Price: ₹${product.price}</p>
+        `;
+        productDetails.appendChild(productCard);
+      });
+    } else {
+      productDetails.innerHTML = `<p class="text-gray-600">No products found for this category.</p>`;
+    }
+  </script>
+</body>
+</html>

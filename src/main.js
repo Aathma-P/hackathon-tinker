@@ -47,7 +47,10 @@ if (searchInput) {
 }
 
 // Load categories on page load
-document.addEventListener("DOMContentLoaded", () => renderCategories());
+document.addEventListener("DOMContentLoaded", () => {
+    renderCategories();
+    setupCategoryClickHandlers();
+});
 
 // ✅ SIGNUP FUNCTIONALITY (Fixed)
 const signupForm = document.getElementById("signupForm");
@@ -161,5 +164,28 @@ if (sellerForm) {
             alert('Product listed successfully!');
             sellerForm.reset();
         }
+    });
+}
+
+// ✅ CATEGORY CLICK HANDLERS
+function setupCategoryClickHandlers() {
+    const categoryItems = document.querySelectorAll('.category-item');
+    categoryItems.forEach(item => {
+        item.addEventListener('click', async function () {
+            const categoryName = this.querySelector('span').textContent;
+            const { data, error } = await supabase
+                .from('products')
+                .select('*')
+                .eq('category', categoryName);
+
+            if (error) {
+                console.error('Error fetching products:', error);
+                alert('Failed to fetch products. Please try again.');
+            } else {
+                // Store the fetched data in localStorage and navigate to the details page
+                localStorage.setItem('selectedCategory', JSON.stringify(data));
+                window.location.href = 'product-details.html';
+            }
+        });
     });
 }
