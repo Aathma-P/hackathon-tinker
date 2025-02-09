@@ -3,12 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>News Page</h1>
+    <title>Latest News - Harvest Hive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="src/main.js"></script>
 <script type="module" src="src/supabase.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+        <h1 class="text-green-600 text-2xl font-bold">HARVEST HIVE</h1>
+        <div>
+            <a href="marketplace.html" class="mr-4 text-gray-600 hover:text-green-600">Marketplace</a>
+            <a href="about.html" class="mr-4 text-gray-600 hover:text-green-600">About Us</a>
+            <a href="news.html" class="mr-4 text-gray-600 hover:text-green-600">News</a>
+            <a href="homepage.html">
+            <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Logout</button>
+        </div></a>
+    </nav>
 
+    <!-- Page Heading -->
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Latest News for Farmers</h1>
+
+        <!-- News Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- News Card 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold mb-2">New Government Subsidies for Farmers</h2>
+                <p class="text-gray-600 mb-4">The government has announced new subsidies for farmers to support sustainable agriculture practices. Learn more about how you can benefit.</p>
+                <a href="#" class="text-green-500 hover:text-green-600">Read More →</a>
+            </div>
+
+            <!-- News Card 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1529310399831-ed472b81d589?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold mb-2">Organic Farming Gains Popularity</h2>
+                <p class="text-gray-600 mb-4">Organic farming is becoming increasingly popular among farmers due to its environmental benefits and higher market demand.</p>
+                <a href="#" class="text-green-500 hover:text-green-600">Read More →</a>
+            </div>
+
+            <!-- News Card 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold mb-2">New Technology for Crop Monitoring</h2>
+                <p class="text-gray-600 mb-4">Farmers are now using drones and IoT devices to monitor crop health and improve yields. Discover the latest advancements.</p>
+                <a href="#" class="text-green-500 hover:text-green-600">Read More →</a>
+            </div>
+
+            <!-- News Card 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1529310399831-ed472b81d589?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold mb-2">Rising Demand for Organic Produce</h2>
+                <p class="text-gray-600 mb-4">Consumers are increasingly demanding organic produce, creating new opportunities for farmers to expand their markets.</p>
+                <a href="#" class="text-green-500 hover:text-green-600">Read More →</a>
+            </div>
+
+            <!-- News Card 5 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold mb-2">Climate-Resilient Crops Introduced</h2>
+                <p class="text-gray-600 mb-4">Scientists have developed new climate-resilient crop varieties to help farmers adapt to changing weather patterns.</p>
+                <a href="#" class="text-green-500 hover:text-green-600">Read More →</a>
+            </div>
+
+            <!-- News Card 6 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold mb-2">Farmers' Markets Thriving Post-Pandemic</h2>
+                <p class="text-gray-600 mb-4">Farmers' markets are experiencing a resurgence as consumers seek fresh, locally sourced produce.</p>
+                <a href="#" class="text-green-500 hover:text-green-600">Read More →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white p-4 mt-6 text-center">
+        <p>&copy; 2024 Harvest Hive. All rights reserved.</p>
+    </footer>
 </body>
 </html>
