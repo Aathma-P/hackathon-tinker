@@ -7,62 +7,112 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/main.js"></script>
 </head>
-<body class="bg-gray-100">
-    <!-- Navbar -->
-    <nav class="bg-green-600 p-4 text-white">
+<body class="bg-gray-50">
+    <!-- Enhanced Navbar -->
+    <nav class="bg-gradient-to-r from-green-600 to-green-500 p-6 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-bold">Farmers Market</a>
-            <div>
-                <a href="homepage.html" class="mx-2 hover:text-green-200">Home</a>
-                <a href="category_page.html" class="mx-2 hover:text-green-200">Categories</a>
-                <a href="about.html" class="mx-2 hover:text-green-200">About Us</a>
-                <a href="news.html" class="mx-2 hover:text-green-200">News</a>
-                <a href="loginpage.html" class="mx-2 bg-green-700 px-4 py-2 rounded hover:bg-green-800">Login</a>
+            <a href="#" class="text-2xl font-bold text-white flex items-center gap-2">
+                🌾 Farmers Market
+            </a>
+            <div class="space-x-6">
+                <a href="homepage.html" class="text-white hover:text-green-200 transition-colors">Home</a>
+                <a href="category_page.html" class="text-white hover:text-green-200 transition-colors">Categories</a>
+                <a href="about.html" class="text-white hover:text-green-200 transition-colors">About Us</a>
+                <a href="news.html" class="text-white hover:text-green-200 transition-colors">News</a>
+                <a href="loginpage.html" class="bg-white text-green-600 px-6 py-2 rounded-full font-medium hover:bg-green-100 transition-colors">Login</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="bg-green-700 text-white py-16">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl font-bold mb-4">Welcome to Farmers Market</h1>
-            <p class="text-xl mb-8">Connect directly with farmers and buy fresh produce without middlemen</p>
-            <div class="space-x-4">
-                <a href="category_page.html" class="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-100">Browse Products</a>
-                <a href="loginpage.html" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-500">Join Now</a>
+    <!-- Enhanced Hero Section -->
+    <div class="bg-gradient-to-b from-green-700 to-green-600 text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="container mx-auto text-center relative z-10 px-4">
+            <h1 class="text-5xl font-bold mb-6">Welcome to Farmers Market</h1>
+            <p class="text-xl mb-12 text-green-100 max-w-2xl mx-auto">Connect directly with farmers and buy fresh produce without middlemen. Join our community of sustainable agriculture.</p>
+            <div class="space-x-6">
+                <a href="category_page.html" class="bg-white text-green-700 px-8 py-4 rounded-full font-semibold hover:bg-green-100 transition-colors shadow-lg">Browse Products</a>
+                <a href="loginpage.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-green-700 transition-colors shadow-lg">Join Now</a>
             </div>
         </div>
     </div>
 
-    <!-- Features Section -->
-    <div class="container mx-auto py-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Enhanced Features Section -->
+    <div class="container mx-auto py-24 px-4">
+        <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <!-- Buy Products -->
-            <a href="category_page.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-semibold mb-4">Buy Products</h3>
-                <p class="text-gray-600">Connect directly with farmers to buy fresh produce or sell your agricultural products.</p>
+            <a href="category_page.html" class="group">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Buy Products</h3>
+                    <p class="text-gray-600 leading-relaxed">Connect directly with farmers to buy fresh produce or sell your agricultural products.</p>
+                </div>
             </a>
 
             <!-- Sell Products -->
-            <a href="sellingpage.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-semibold mb-4">Sell Products</h3>
-                <p class="text-gray-600">Rent agricultural tools and equipment from other farmers in your area.</p>
+            <a href="sellingpage.html" class="group">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Sell Products</h3>
+                    <p class="text-gray-600 leading-relaxed">Rent agricultural tools and equipment from other farmers in your area.</p>
+                </div>
             </a>
 
             <!-- Sell Waste Products -->
-            <a href="wasteselling.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-semibold mb-4">Sell Waste Products</h3>
-                <p class="text-gray-600">Convert agricultural waste into revenue by selling to interested industries.</p>
+            <a href="wasteselling.html" class="group">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Sell Waste Products</h3>
+                    <p class="text-gray-600 leading-relaxed">Convert agricultural waste into revenue by selling to interested industries.</p>
+                </div>
             </a>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-green-600 p-4 text-white text-center">
-        <p>&copy; 2025 Farmers Market. All rights reserved.</p>
+    <!-- Enhanced Footer -->
+    <footer class="bg-gradient-to-r from-green-600 to-green-500 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">About Us</h3>
+                    <p class="text-green-100">Connecting farmers and consumers for a sustainable agricultural future.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-100 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email" class="p-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button class="bg-green-700 px-4 rounded-r-lg hover:bg-green-800 transition-colors">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center border-t border-green-500 pt-8">
+                <p>&copy; 2025 Farmers Market. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
-    <script type="module" src="src/main.js"></script>
-<script type="module" src="src/supabase.js"></script>
 
+    <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/supabase.js"></script>
 </body>
 </html>

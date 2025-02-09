@@ -1,193 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farmers Market - Categories</title>
-  <link href="./src/input.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Hive - Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .custom-hover:hover {
+            background-color: #74AB4E !important;
+            color: white !important;
+            border-color: #74AB4E !important;
+        }
+    </style>
 </head>
-<body class="bg-gray-100">
-  <!-- Navbar -->
-  <nav class="bg-green-600 p-4 text-white">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold">Farmers Market</a>
-      <div>
-        <a href="homepage.html" class="mx-2">Home</a>
-        <a href="about.html" class="mx-2">About Us</a>
-        <a href="news.html" class="mx-2">News</a>
-      </div>
-    </div>
-  </nav>
+<body class="text-gray-800 bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-green-600">HARVEST HIVE</h1>
+            <button id="menu-btn" class="md:hidden text-green-600 text-xl">☰</button>
+            <ul class="hidden md:flex space-x-6 text-gray-700" id="menu">
+                <li>
+                    <a href="signup.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                        Sign-up
+                    </a>
+                </li>
+                <li><a href="homepage.html" class="hover:text-green-600">Home</a></li>
+                <li><a href="about.html" class="hover:text-green-600">About</a></li>
+                <li><a href="about.html" class="hover:text-green-600">Contact</a></li>
+                <li><a href="profile.html" class="hover:text-green-600">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Page Heading -->
-  <div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold text-green-800">Listing Categories</h1>
-    <p class="text-gray-600 mt-2">
-      Buy and sell your Agric produce online (Buyers meet Farmers) - Sell your produce directly to buyers without middlemen and make more money from your farm produce.
+    <!-- Page Heading -->
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-gray-900">
+            <span class="text-green-600">LISTING</span> CATEGORIES
+        </h1>
+        <p class="text-lg text-gray-700 mt-4">
+            Buy and sell your Agric produce online (Buyers meet Farmers) - Sell your produce directly to buyers without middlemen and make more money from your farm produce.
+        </p>
+    </div>
+
+    <!-- Category List -->
+    <div class="container mx-auto p-6">
+        <div class="space-y-8">
+            <!-- Agri Tools -->
+            <div>
+                <h2 class="text-2xl font-bold text-green-600">Agri Tools</h2>
+                <div class="mt-4 space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Cattle And Sheep</span></a>
+                        <span class="text-gray-600">Tools for managing cattle and sheep.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Cereals</span></a>
+                        <span class="text-gray-600">Equipment for cereal farming.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Coffee And Tea</span></a>
+                        <span class="text-gray-600">Tools for coffee and tea cultivation.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Cotton</span></a>
+                        <span class="text-gray-600">Machinery for cotton farming.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Fertilizers</span></a>
+                        <span class="text-gray-600">Tools for fertilizer application.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fishery -->
+            <div>
+                <h2 class="text-2xl font-bold text-green-600">Fishery</h2>
+                <div class="mt-4 space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Flowers</span></a>
+                        <span class="text-gray-600">Tools for flower farming.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Fruits</span></a>
+                        <span class="text-gray-600">Equipment for fruit cultivation.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Home Made Products</span></a>
+                        <span class="text-gray-600">Tools for creating homemade products.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Manure</span></a>
+                        <span class="text-gray-600">Tools for manure management.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Nursery Plants</span></a>
+                        <span class="text-gray-600">Equipment for nursery plant care.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poultry Products -->
+            <div>
+                <h2 class="text-2xl font-bold text-green-600">Poultry Products</h2>
+                <div class="mt-4 space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Eggs</span></a>
+                        <span class="text-gray-600">Fresh eggs from poultry farms.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Chicken</span></a>
+                        <span class="text-gray-600">Live and processed chicken products.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Feed</span></a>
+                        <span class="text-gray-600">High-quality poultry feed.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seeds -->
+            <div>
+                <h2 class="text-2xl font-bold text-green-600">Seeds</h2>
+                <div class="mt-4 space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Vegetable Seeds</span></a>
+                        <span class="text-gray-600">High-yield vegetable seeds.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Fruit Seeds</span></a>
+                        <span class="text-gray-600">Seeds for various fruit plants.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Flower Seeds</span></a>
+                        <span class="text-gray-600">Seeds for beautiful flowers.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spices -->
+            <div>
+                <h2 class="text-2xl font-bold text-green-600">Spices</h2>
+                <div class="mt-4 space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Pepper</span></a>
+                        <span class="text-gray-600">Fresh and dried pepper.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Turmeric</span></a>
+                        <span class="text-gray-600">Organic turmeric powder.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Cinnamon</span></a>
+                        <span class="text-gray-600">Pure cinnamon sticks and powder.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vegetables -->
+            <div>
+                <h2 class="text-2xl font-bold text-green-600">Vegetables</h2>
+                <div class="mt-4 space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Tomatoes</span></a>
+                        <span class="text-gray-600">Fresh and organic tomatoes.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Carrots</span></a>
+                        <span class="text-gray-600">Sweet and crunchy carrots.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Spinach</span></a>
+                        <span class="text-gray-600">Fresh and nutritious spinach.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wood And Timber -->
+            <div>
+                <h2 class="text-2xl font-bold text-green-600">Wood And Timber</h2>
+                <div class="mt-4 space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Teak Wood</span></a>
+                        <span class="text-gray-600">High-quality teak wood for construction.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Pine Wood</span></a>
+                        <span class="text-gray-600">Affordable pine wood for furniture.</span>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <a href="product-details.html"><span class="text-lg font-medium">Oak Wood</span></a>
+                        <span class="text-gray-600">Durable oak wood for flooring.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-400 text-gray-900 py-10">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Menu -->
+            <div>
+                <h3 class="font-bold uppercase">Menu</h3>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:text-green-600">Home</a></li>
+                    <li><a href="#" class="hover:text-green-600">Market</a></li>
+                    <li><a href="#" class="hover:text-green-600">Crop Converter</a></li>
+                </ul>
+            </div>
+
+            <!-- About -->
+            <div>
+                <h3 class="font-bold uppercase">About</h3>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:text-green-600">Our Company</a></li>
+                    <li><a href="#" class="hover:text-green-600">Our People</a></li>
+                    <li><a href="#" class="hover:text-green-600">FAQ's</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+                <h3 class="font-bold uppercase">Legal</h3>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:text-green-600">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-green-600">Cookies Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div>
+                <h3 class="font-bold uppercase">Contact Us</h3>
+                <ul class="mt-2 space-y-2">
+                    <li>📞 +91 9999988888</li>
+                    <li>📧 abc.com</li>
+                </ul>
+  
+                <!-- Social Media Icons -->
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="hover:text-green-600"><img src="/images/facebook.png" alt="Facebook" class="w-6 h-6"></a>
+                    <a href="#" class="hover:text-green-600"><img src="/images/instagram.png" alt="Instagram" class="w-6 h-6"></a>
+                    <a href="#" class="hover:text-green-600"><img src="/images/linkedin.png" alt="LinkedIn" class="w-6 h-6"></a>
+                    <a href="#" class="hover:text-green-600"><img src="/images/twitter.png" alt="Twitter" class="w-6 h-6"></a>
+                    <a href="#" class="hover:text-green-600"><img src="/images/youtube.png" alt="YouTube" class="w-6 h-6"></a>
+                </div>
+            </div>
+  
+        </div>
+    </footer>
+  
+  <!-- Cookies Notice -->
+  <div class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 text-center text-sm">
+    <p>Cookies help us deliver our services. By using our services, you agree to our use of cookies. 
+        <a href="#" class="text-green-400 underline">Learn more</a>
     </p>
   </div>
-
-  <!-- Category List -->
-  <div class="container mx-auto p-4">
-    <div class="space-y-4">
-      <!-- Agri Tools -->
-      <div>
-        <h2 class="text-2xl font-semibold text-green-700">Agri Tools</h2>
-        <div class="mt-2 space-y-2">
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Cattle And Sheep</span>
-            <span class="text-gray-600">Tools for managing cattle and sheep.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Cereals</span>
-            <span class="text-gray-600">Equipment for cereal farming.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Coffee And Tea</span>
-            <span class="text-gray-600">Tools for coffee and tea cultivation.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Cotton</span>
-            <span class="text-gray-600">Machinery for cotton farming.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Fertilizers</span>
-            <span class="text-gray-600">Tools for fertilizer application.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fishery -->
-      <div>
-        <h2 class="text-2xl font-semibold text-green-700">Fishery</h2>
-        <div class="mt-2 space-y-2">
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Flowers</span>
-            <span class="text-gray-600">Tools for flower farming.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Fruits</span>
-            <span class="text-gray-600">Equipment for fruit cultivation.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Home Made Products</span>
-            <span class="text-gray-600">Tools for creating homemade products.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Manure</span>
-            <span class="text-gray-600">Tools for manure management.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Nursery Plants</span>
-            <span class="text-gray-600">Equipment for nursery plant care.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Poultry Products -->
-      <div>
-        <h2 class="text-2xl font-semibold text-green-700">Poultry Products</h2>
-        <div class="mt-2 space-y-2">
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Eggs</span>
-            <span class="text-gray-600">Fresh eggs from poultry farms.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Chicken</span>
-            <span class="text-gray-600">Live and processed chicken products.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Feed</span>
-            <span class="text-gray-600">High-quality poultry feed.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Seeds -->
-      <div>
-        <h2 class="text-2xl font-semibold text-green-700">Seeds</h2>
-        <div class="mt-2 space-y-2">
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Vegetable Seeds</span>
-            <span class="text-gray-600">High-yield vegetable seeds.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Fruit Seeds</span>
-            <span class="text-gray-600">Seeds for various fruit plants.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Flower Seeds</span>
-            <span class="text-gray-600">Seeds for beautiful flowers.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Spices -->
-      <div>
-        <h2 class="text-2xl font-semibold text-green-700">Spices</h2>
-        <div class="mt-2 space-y-2">
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Pepper</span>
-            <span class="text-gray-600">Fresh and dried pepper.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Turmeric</span>
-            <span class="text-gray-600">Organic turmeric powder.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Cinnamon</span>
-            <span class="text-gray-600">Pure cinnamon sticks and powder.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Vegetables -->
-      <div>
-        <h2 class="text-2xl font-semibold text-green-700">Vegetables</h2>
-        <div class="mt-2 space-y-2">
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Tomatoes</span>
-            <span class="text-gray-600">Fresh and organic tomatoes.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Carrots</span>
-            <span class="text-gray-600">Sweet and crunchy carrots.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Spinach</span>
-            <span class="text-gray-600">Fresh and nutritious spinach.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wood And Timber -->
-      <div>
-        <h2 class="text-2xl font-semibold text-green-700">Wood And Timber</h2>
-        <div class="mt-2 space-y-2">
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Teak Wood</span>
-            <span class="text-gray-600">High-quality teak wood for construction.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Pine Wood</span>
-            <span class="text-gray-600">Affordable pine wood for furniture.</span>
-          </div>
-          <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-lg font-medium">Oak Wood</span>
-            <span class="text-gray-600">Durable oak wood for flooring.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-green-600 p-4 text-white text-center">
-    <p>&copy; 2025 Farmers Market. All rights reserved.</p>
-  </footer>
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <script type="module" src="src/main.js"></script>
-<script type="module" src="src/supabase.js"></script>
-
-</body>
-</html>
+  
+    <!-- JavaScript -->
+    <script>
+        // Navbar toggle
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+  
+        // Fix button event listener
+        document.querySelectorAll("button").forEach(button => {
+            button.addEventListener("click", () => {
+                alert("Thank you! We will help you find the product.");
+            });
+        });
+        // Navbar toggle for mobile view
+        document.getElementById("menu-btn").addEventListener("click", function() {
+        document.getElementById("menu").classList.toggle("hidden");
+        });
+        document.getElementById("menu-btn").addEventListener("click", function() {
+              document.getElementById("menu").classList.toggle("hidden");
+          });
+          // Navbar toggle for mobile view
+          document.getElementById("menu-btn").addEventListener("click", function() {
+              document.getElementById("menu").classList.toggle("hidden");
+          });
+          // Navbar toggle for mobile view
+          document.getElementById("menu-btn").addEventListener("click", function() {
+              document.getElementById("menu").classList.toggle("hidden");
+          });
+          const textArray = [
+              "Connect with Trusted Farmers around India!",
+              "Sell Your Crops Directly, No Middlemen!",
+              "Buy ,rent and sell essential tools",
+              "Sell the farm waste to the industry",
+              "Fair Trade & Transparent Transactions!"
+          ];
+          let textIndex = 0;
+          let charIndex = 0;
+          let isDeleting = false;
+  
+          function typeEffect() {
+              const currentText = textArray[textIndex];
+              const displayText = isDeleting ? currentText.substring(0, charIndex--) : currentText.substring(0, charIndex++);
+              document.getElementById("typewriter").textContent = displayText;
+  
+              let typingSpeed = isDeleting ? 50 : 100;
+  
+              if (!isDeleting && displayText === currentText) {
+                  typingSpeed = 2000; // Pause before deleting
+                  isDeleting = true;
+              } else if (isDeleting && displayText === "") {
+                  isDeleting = false;
+                  textIndex = (textIndex + 1) % textArray.length;
+                  typingSpeed = 500;
+              }
+  
+              setTimeout(typeEffect, typingSpeed);
+          }
+  
+          // Start animation on page load
+          document.addEventListener("DOMContentLoaded", () => {
+              setTimeout(typeEffect, 1000);
+          });
+    </script>
+    <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/supabase.js"></script>
+    
+  </body>
+  </html>

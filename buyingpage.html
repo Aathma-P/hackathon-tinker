@@ -3,69 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Products</title>
+    <title>Harvest Hive - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-    <!-- Navigation Bar -->
-    <nav class="bg-green-600 p-4 text-white">
+<body class="bg-gray-50">
+    <!-- Hero Navigation Bar -->
+    <nav class="bg-gradient-to-r from-green-600 to-green-500 p-6 text-white shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-bold">Harvest Hive</a>
-            <div>
-                <a href="homepage.html" class="mx-2">Home</a>
-                <a href="category_page.html" class="mx-2">Categories</a>
-                <a href="about.html" class="mx-2">About Us</a>
-                <a href="news.html" class="mx-2">News</a>
-                <a href="signup.html" class="mx-2">Login/Signup</a>
+            <a href="#" class="text-2xl font-bold flex items-center">
+                🌾 Harvest Hive
+            </a>
+            <div class="space-x-6">
+                <a href="homepage.html" class="hover:text-green-200 transition-colors font-medium">Home</a>
+                <a href="category_page.html" class="hover:text-green-200 transition-colors font-medium">Categories</a>
+                <a href="about.html" class="hover:text-green-200 transition-colors font-medium">About Us</a>
+                <a href="news.html" class="hover:text-green-200 transition-colors font-medium">News</a>
+                <a href="signup.html" class="bg-white text-green-600 px-4 py-2 rounded-full hover:bg-green-100 transition-colors font-medium">Login/Signup</a>
             </div>
         </div>
     </nav>
 
-    <!-- Buying Page Content -->
-    <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4">Buy Products</h1>
-        
-        <!-- Search Bar -->
-        <div class="mb-6">
-            <input type="text" placeholder="Search for products..." class="w-full p-2 border border-gray-300 rounded">
-        </div>
-
-        <!-- Product Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Product Card -->
-            <div class="bg-white p-4 rounded shadow">
-                <img src="https://res.cloudinary.com/gro-intelligence/image/upload/v1501086000/analysis/xv40clblnucnudhj0g0g.jpg" alt="Product" class="w-full h-48 object-cover rounded">
-                <h2 class="text-xl font-semibold mt-2">Organic Wheat</h2>
-                <p class="text-gray-600">High-quality organic wheat directly from the farm.</p>
-                <p class="text-green-600 font-bold">₹50/kg</p>
-         
-                    
-                    
-                <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button>
-                <a href="payment.html">
-                <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">buy now</button>
-            </a>
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-b from-green-50 to-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Fresh From Our Farms</h1>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Discover nature's finest produce, directly from local farmers to your table.</p>
             </div>
 
-            <!-- Repeat Product Cards as needed -->
-            <div class="bg-white p-4 rounded shadow">
-                <img src="https://images.everydayhealth.com/images/diet-nutrition/apples-101-about-1440x810.jpg" alt="Product" class="w-full h-48 object-cover rounded">
-                <h2 class="text-xl font-semibold mt-2">Fresh apples</h2>
-                <p class="text-gray-600">Freshly harvested vegetables.</p>
-                <p class="text-green-600 font-bold">₹30/kg</p>
-                <a href="waste_cart.html"><button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button></a>
-                <a href="payment.html">
-                <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">buy now</button></a>
+            <!-- Enhanced Search Bar -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="flex items-center bg-white rounded-full shadow-md p-2">
+                    <input type="text" placeholder="Search for fresh produce..." class="w-full px-6 py-3 rounded-full focus:outline-none">
+                    <button class="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors">Search</button>
+                </div>
             </div>
 
-            <!-- Add more products here -->
+            <!-- Featured Products Grid -->
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Featured Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-200">
+                    <img src="https://res.cloudinary.com/gro-intelligence/image/upload/v1501086000/analysis/xv40clblnucnudhj0g0g.jpg" alt="Product" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-800">Organic Wheat</h2>
+                        <p class="text-gray-600 mb-4">High-quality organic wheat directly from the farm.</p>
+                        <div class="flex justify-between items-center">
+                            <p class="text-green-600 font-bold text-xl">₹50/kg</p>
+                            <div class="space-x-2">
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors">Add to Cart</button>
+                                <a href="payment.html">
+                                    <button class="bg-green-100 text-green-600 px-4 py-2 rounded-full hover:bg-green-200 transition-colors">Buy Now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-200">
+                    <img src="https://images.everydayhealth.com/images/diet-nutrition/apples-101-about-1440x810.jpg" alt="Product" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-800">Fresh Apples</h2>
+                        <p class="text-gray-600 mb-4">Freshly harvested vegetables.</p>
+                        <div class="flex justify-between items-center">
+                            <p class="text-green-600 font-bold text-xl">₹30/kg</p>
+                            <div class="space-x-2">
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors">Add to Cart</button>
+                                <a href="payment.html">
+                                    <button class="bg-green-100 text-green-600 px-4 py-2 rounded-full hover:bg-green-200 transition-colors">Buy Now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-green-600 text-white p-4 mt-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 FarmDirect. All rights reserved.</p>
+    <!-- Enhanced Footer -->
+    <footer class="bg-gradient-to-r from-green-600 to-green-500 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">About Harvest Hive</h3>
+                    <p class="text-green-100">Connecting farmers and consumers for a sustainable future.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-100 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email" class="p-2 rounded-l focus:outline-none text-gray-800">
+                        <button class="bg-green-700 px-4 rounded-r hover:bg-green-800 transition-colors">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center border-t border-green-500 pt-8">
+                <p>&copy; 2025 Harvest Hive. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -74,6 +116,5 @@
     </script>
     <script type="module" src="src/main.js"></script>
     <script type="module" src="src/supabase.js"></script>
-    
 </body>
 </html>
