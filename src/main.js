@@ -1,194 +1,104 @@
 // Import Supabase
 import { supabase } from "./supabase.js";
 
-// ✅ CATEGORY FILTER FUNCTIONALITY
-const categories = [
-    { name: "Fresh Vegetables", type: "Product", image: "img/vegetables.jpg" },
-    { name: "Fruits", type: "Product", image: "img/fruits.jpg" },
-    { name: "Tractors", type: "Tool", image: "img/tractors.jpg" },
-    { name: "Organic Waste", type: "Waste", image: "img/waste.jpg" },
-    { name: "Dairy Products", type: "Product", image: "img/dairy.jpg" },
-    { name: "Irrigation Tools", type: "Tool", image: "img/irrigation.jpg" }
-];
-
-// Render categories based on search filter
-function renderCategories(filter = "") {
-    const grid = document.getElementById("categoryGrid");
-    if (!grid) return; // Prevent error if element is not on this page
-    grid.innerHTML = "";
-
-    const filteredCategories = categories.filter(cat =>
-        cat.name.toLowerCase().includes(filter.toLowerCase())
-    );
-
-    if (filteredCategories.length === 0) {
-        grid.innerHTML = `<p class="text-gray-600 text-center col-span-3">No categories found.</p>`;
-        return;
-    }
-
-    filteredCategories.forEach(cat => {
-        const categoryCard = document.createElement("div");
-        categoryCard.className = "bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition";
-        categoryCard.innerHTML = `
-            <img src="${cat.image}" alt="${cat.name}" class="w-full h-40 object-cover rounded">
-            <h3 class="text-xl font-semibold mt-2">${cat.name}</h3>
-            <p class="text-gray-500">${cat.type}</p>
-        `;
-        grid.appendChild(categoryCard);
-    });
-}
-
-// Search functionality
-const searchInput = document.getElementById("searchInput");
-if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
-        renderCategories(e.target.value);
-    });
-}
-
-// Load categories on page load
-document.addEventListener("DOMContentLoaded", () => {
-    renderCategories();
-    setupCategoryClickHandlers();
-});
-
-// ✅ SIGNUP FUNCTIONALITY (Fixed)
+// ✅ SIGNUP FUNCTIONALITY (Store full name in Supabase Auth)
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
     signupForm.addEventListener("submit", async function (event) {
-        event.preventDefault(); // Prevent form refresh
+        event.preventDefault();
 
-        const fullName = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
+        const fullName = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
         const userType = document.getElementById("userType").value;
         const errorMessage = document.getElementById("errorMessage");
 
-        // ✅ Check if passwords match
+        if (!fullName || !email || !password || !userType) {
+            errorMessage.textContent = "All fields are required.";
+            return;
+        }
+
         if (password !== confirmPassword) {
             errorMessage.textContent = "Passwords do not match.";
             return;
         }
 
-        // ✅ Sign up user with Supabase Authentication
+        // ✅ Step 1: Sign up user & store full name in metadata
         const { data, error } = await supabase.auth.signUp({
             email: email,
             password: password,
             options: {
-                data: { full_name: fullName, user_type: userType }
+                data: { full_name: fullName, user_type: userType } // ✅ Store full name
             }
         });
 
         if (error) {
             errorMessage.textContent = "Signup failed: " + error.message;
-        } else {
-            // ✅ Ensure user object exists before inserting
-            if (data.user) {
-                await supabase.from("users").insert([
+            return;
+        }
+
+        if (data.user) {
+            // ✅ Step 2: Insert user details into `users` table
+            const { error: insertError } = await supabase
+                .from("users")
+                .insert([
                     {
-                        id: data.user.id, // Use the Supabase auth user ID
+                        id: data.user.id, // Use Supabase Auth user ID
                         full_name: fullName,
                         email: email,
-                        user_type: userType
-                    }
+                        user_type: userType,
+                    },
                 ]);
-            }
 
-            alert("Signup successful! Please check your email for verification.");
-            window.location.href = "homepage.html"; // Redirect to login page
+            if (insertError) {
+                console.error("Error inserting user:", insertError.message);
+                errorMessage.textContent = "Signup successful, but user data was not saved.";
+                return;
+            }
         }
+
+        alert("Signup successful! Redirecting...");
+        window.location.href = "homepage.html"; // Redirect after signup
     });
 }
 
-// ✅ LOGIN FUNCTIONALITY (No changes needed)
+// ✅ LOGIN FUNCTIONALITY (Fetch Full Name from Auth)
 const loginForm = document.getElementById("login-form");
 if (loginForm) {
     loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const email = document.getElementById("email").value;
+        const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("errorMessage");
 
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-
-        if (error) {
-            alert("Login failed: " + error.message);
-        } else {
-            alert("Login successful!");
-            window.location.href = "dashboard.html"; // Redirect after login
-        }
-    });
-}
-
-// ✅ SELLER FORM FUNCTIONALITY
-const sellerForm = document.getElementById("sellerForm");
-if (sellerForm) {
-    sellerForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        const productName = document.getElementById("productName").value;
-        const productDescription = document.getElementById("productDescription").value;
-        const productPrice = document.getElementById("productPrice").value;
-        const productImage = document.getElementById("productImage").files[0];
-
-        // Upload image to Supabase Storage
-        const { data: imageData, error: imageError } = await supabase.storage
-            .from('product-images')
-            .upload(`products/${productImage.name}`, productImage);
-
-        if (imageError) {
-            console.error('Error uploading image:', imageError);
-            alert('Failed to upload product image. Please try again.');
+        if (!email || !password) {
+            errorMessage.textContent = "Please enter both email and password.";
             return;
         }
 
-        // Get the URL of the uploaded image
-        const { data: imageUrl } = supabase.storage
-            .from('product-images')
-            .getPublicUrl(`products/${productImage.name}`);
+        // ✅ Step 1: Sign in user in Supabase Auth
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
-        // Insert product data into the products table
-        const { data: productData, error: productError } = await supabase
-            .from('products')
-            .insert([
-                {
-                    name: productName,
-                    description: productDescription,
-                    price: productPrice,
-                    image_url: imageUrl.publicUrl
-                }
-            ]);
-
-        if (productError) {
-            console.error('Error inserting product:', productError);
-            alert('Failed to list product. Please try again.');
-        } else {
-            alert('Product listed successfully!');
-            sellerForm.reset();
+        if (error) {
+            errorMessage.textContent = "Login failed: " + error.message;
+            return;
         }
-    });
-}
 
-// ✅ CATEGORY CLICK HANDLERS
-function setupCategoryClickHandlers() {
-    const categoryItems = document.querySelectorAll('.category-item');
-    categoryItems.forEach(item => {
-        item.addEventListener('click', async function () {
-            const categoryName = this.querySelector('span').textContent;
-            const { data, error } = await supabase
-                .from('products')
-                .select('*')
-                .eq('category', categoryName);
+        // ✅ Step 2: Fetch user metadata from Supabase Auth
+        const user = data.user;
+        if (!user) {
+            errorMessage.textContent = "Authentication failed.";
+            return;
+        }
 
-            if (error) {
-                console.error('Error fetching products:', error);
-                alert('Failed to fetch products. Please try again.');
-            } else {
-                // Store the fetched data in localStorage and navigate to the details page
-                localStorage.setItem('selectedCategory', JSON.stringify(data));
-                window.location.href = 'product-details.html';
-            }
-        });
+        const fullName = user.user_metadata?.full_name || "Unknown User";
+        alert(`Welcome back, ${fullName}!`);
+        
+        // Store user data in localStorage
+        localStorage.setItem("user", JSON.stringify(user));
+
+        window.location.href = "dashboard.html"; // Redirect after login
     });
 }
