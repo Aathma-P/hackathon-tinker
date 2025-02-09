@@ -71,7 +71,10 @@ if (signupForm) {
         // ✅ Sign up user with Supabase Authentication
         const { data, error } = await supabase.auth.signUp({
             email: email,
-            password: password
+            password: password,
+            options: {
+                data: { full_name: fullName, user_type: userType }
+            }
         });
 
         if (error) {
